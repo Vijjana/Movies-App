@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id = "input"></input>
+
+</body>
+</html>
+<script>
+
+let input= document.getElementById("input");
+
+let output= debouncing(trigger)
+
+input.addEventListener("keyup", function(){
+
+output(event.target.value)
+
+})
+
+
+function debouncing(trigger, delay){
+    let TimerId;
+    return function(...para){
+        clearTimeout(TimerId);
+      TimerId=  setTimeout(()=>{trigger(...para)},delay)
+    }
+
+}
+
+function trigger(query){
+    console.log(query);
+}
+
+
+
+</script>
